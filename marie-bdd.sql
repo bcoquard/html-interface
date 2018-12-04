@@ -36,7 +36,7 @@ CREATE TABLE `client`
 	`id_client` int,
 	`login` varchar(255),
 	`password` varchar(255),
-	`type` enum,
+	`type` enum(''),
 	`nom` varchar(255),
 	`prenom` varchar(255),
 	`date_naissance` date,
@@ -53,7 +53,7 @@ CREATE TABLE `operation`
 	`operation_id` int,
 	`compte_debit` int,
 	`compte_credit` int,
-	`type` enum,
+	`type` enum(''),
 	`date_execution` date,
 	`montant` decimal,
 	primary key(operation_id)
@@ -71,7 +71,7 @@ CREATE TABLE `demande`
 CREATE TABLE `compte` 
 (
 	`id_compte` int,
-	`type` enum,
+	`type` enum(''),
 	`numero` varchar(255),
 	`id_client` int,
 	`solde` decimal,
