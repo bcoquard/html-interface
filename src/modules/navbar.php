@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="client.html">PBP</a>
+    <a class="navbar-brand" href="client.php">PBP</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -47,7 +47,7 @@
             <img class="dropdown-item" src="../../media/avatar-2.png" />
             <span class="dropdown-item">LOREM Ipsum</span>
             <span class="dropdown-item"></span>
-            <a class="dropdown-item" href="../../index.php"
+            <a class="dropdown-item" href="../modules/logout.php"
               ><button class="btn btn-danger">Deconnexion</button></a
             >
           </div>
