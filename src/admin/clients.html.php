@@ -17,6 +17,7 @@
           <th scope="col">email</th>
           <th scope="col">telephone</th>
           <th scope="col">agence</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -32,6 +33,7 @@ foreach ($clients as $iter) {
     echo '<td>' . $iter->email . '</td>';
     echo '<td>' . $iter->telephone . '</td>';
     echo '<td>' . $iter->description . '</td>';
+    echo '<td><a href="client.php?client=' . $iter->id_client . '"><i class="far fa-edit"></i></td>';
     echo '</tr>';
 }
 ?>
