@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-<div>Bénéficiaires</div>
-
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a
@@ -48,15 +46,9 @@
         <?php
 foreach ($beneficiairesValide as $iter) {
     echo '<tr>';
-    echo '<td>';
-    echo $iter->libelle;
-    echo '</td>';
-    echo '<td>';
-    echo $iter->iban;
-    echo '</td>';
-    echo '<td>';
-    echo $iter->date_ajout;
-    echo '</td>';
+    echo '<td>' . $iter->libelle . '</td>';
+    echo '<td>' . $iter->iban . '</td>';
+    echo '<td>' . $iter->date_ajout . '</td>';
     echo '</tr>';
 }
 ?>
@@ -114,15 +106,9 @@ foreach ($beneficiairesValide as $iter) {
       <?php
 foreach ($beneficiairesAttente as $iter) {
     echo '<tr>';
-    echo '<td>';
-    echo $iter->libelle;
-    echo '</td>';
-    echo '<td>';
-    echo $iter->iban;
-    echo '</td>';
-    echo '<td>';
-    echo $iter->date_ajout;
-    echo '</td>';
+    echo '<td>' . $iter->libelle . '</td>';
+    echo '<td>' . $iter->iban . '</td>';
+    echo '<td>' . $iter->date_ajout . '</td>';
     echo '</tr>';
 }
 ?>

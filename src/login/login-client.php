@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <?php include '../modules/includes.php'?>
+        <title>Connexion Client</title>
     </head>
 
 <?php
@@ -49,9 +50,7 @@ if (isset($_POST["email"], $_POST["password"])) {
                 type="text"
                 class="form-control"
                 placeholder="Username"
-                aria-label="Username"
                 name="email"
-                aria-describedby="basic-addon1"
                 required
               />
             </div>
@@ -64,9 +63,7 @@ if (isset($_POST["email"], $_POST["password"])) {
                 type="password"
                 class="form-control"
                 placeholder="Password"
-                aria-label="Password"
                 name="password"
-                aria-describedby="basic-addon1"
                 required
               />
             </div>

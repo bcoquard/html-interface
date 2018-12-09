@@ -25,9 +25,6 @@
         <li class="nav-item">
           <a class="nav-link" href="beneficiaires.php">Bénéficiaire</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="souscription.php">Souscrire</a>
-        </li>
       </ul>
 
       <ul class="navbar-nav">
@@ -41,7 +38,9 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Moi
+<?php
+echo $_SESSION['connectedUser']->nom . ' ' . $_SESSION['connectedUser']->prenom
+?>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <img class="dropdown-item" src="../../media/avatar-2.png" />
