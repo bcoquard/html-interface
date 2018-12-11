@@ -2,7 +2,7 @@
 
 <div>
 
-  <?php
+    <?php
   foreach ($comptesCheque as $key => $iter) {
       $compteType = $iter->type;
       $compteNumber = $iter->numero;

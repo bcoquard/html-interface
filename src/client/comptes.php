@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-      <?php include '../modules/includes.php';?>
 
-      <title>Comptes</title>
-  </head>
+<head>
+    <?php include '../modules/includes.php';?>
 
-  <body class="container">
+    <title>Comptes</title>
+</head>
+
+<body class="container">
     <?php
             $PAGE_TYPE = 'CLIENT';
             include '../modules/is-logged-in.php';?>
@@ -31,5 +32,6 @@
 
     <?php include 'comptes.html.php';?>
 
-    </body>
+</body>
+
 </html>

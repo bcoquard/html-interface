@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-      <?php include './includes.html';?>
 
-      <title>Opérations</title>
-  </head>
+<head>
+  <?php include './includes.html';?>
 
-  <body class="container">
+  <title>Opérations</title>
+</head>
 
-    <?php include '../modules/navbar.php';?>
+<body class="container">
 
-    <?php include './operations.html';?>
+  <?php include '../modules/navbar.php';?>
 
-  </body>
+  <?php include './operations.html';?>
+
+</body>
+
 </html>

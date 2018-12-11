@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-      <?php include '../modules/includes.php';?>
 
-      <title>Clients</title>
-  </head>
+<head>
+    <?php include '../modules/includes.php';?>
 
-  <body class="container">
+    <title>Clients</title>
+</head>
+
+<body class="container">
 
     <?php
 $PAGE_TYPE = 'ADMIN';
@@ -61,4 +62,5 @@ header('Location:beneficiaires.php');}*/
     <?php include './clients.html.php';?>
 
 </body>
+
 </html>

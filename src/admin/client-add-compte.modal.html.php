@@ -9,8 +9,8 @@
         </button>
       </div>
       <div class="modal-body">
-      <form method="POST" action="./client.php?client=<?php echo $idClient ?>">
-          <input hidden name="dbObject" value="compte"  />
+        <form method="POST" action="./client.php?client=<?php echo $idClient ?>">
+          <input hidden name="dbObject" value="compte" />
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -27,37 +27,23 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Solde</span>
             </div>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="0.0"
-              name="solde"
-              required />
+            <input type="text" class="form-control" placeholder="0.0" name="solde" required />
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Taux</span>
             </div>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="0.0"
-              name="taux"
-              required />
+            <input type="text" class="form-control" placeholder="0.0" name="taux" required />
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Découvert</span>
             </div>
-            <input
-              type="checkbox"
-              value="true"
-              class="form-control"
-              name="decouvert"/>
+            <input type="checkbox" value="true" class="form-control" name="decouvert" />
           </div>
-          
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
             <button type="submit" class="btn btn-primary">Enregistrer</button>

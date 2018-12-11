@@ -47,8 +47,9 @@
           <tr>
             <th scope="row">6</th>
             <td>28/10/2019</td>
-            <td><3</td>
-            <td style="color:rgb(196, 58, 34)">- 1000.00 €</td>
+            <td>
+              <3</td> <td style="color:rgb(196, 58, 34)">- 1000.00 €
+            </td>
             <td>Voyage voyage</td>
           </tr>
           <tr>

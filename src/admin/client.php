@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-      <?php include '../modules/includes.php';?>
 
-      <title>Client</title>
-  </head>
+<head>
+    <?php include '../modules/includes.php';?>
 
-  <body class="container">
+    <title>Client</title>
+</head>
+
+<body class="container">
     <?php
 $PAGE_TYPE = 'ADMIN';
 include '../modules/is-logged-in.php';?>
 
     <?php include '../modules/navbar-admin.php';?>
 
-<?php
+    <?php
 $bdd = new PDO('mysql:host=localhost;dbname=pbp;charset=utf8', 'root', '');
 
 $idClient = $_GET['client'];
@@ -104,8 +105,9 @@ $agences = $reqAgences->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 
- <?php include 'client.html.php';?>
+    <?php include 'client.html.php';?>
 
 
 </body>
+
 </html>

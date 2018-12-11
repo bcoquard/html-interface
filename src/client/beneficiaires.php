@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-      <?php include '../modules/includes.php';?>
 
-      <title>Bénéficaires</title>
-  </head>
+<head>
+    <?php include '../modules/includes.php';?>
 
-  <body class="container">
+    <title>Bénéficaires</title>
+</head>
+
+<body class="container">
 
     <?php
 $PAGE_TYPE = 'CLIENT';
@@ -15,7 +16,7 @@ include '../modules/is-logged-in.php';?>
 
     <?php include '../modules/navbar.php';?>
 
-      <?php
+    <?php
 // Accès à la base de données
 $bdd = new PDO('mysql:host=localhost;dbname=pbp;charset=utf8', 'root', '');
 
@@ -44,5 +45,6 @@ if (isset($_POST["libelle"], $_POST["iban"])) {
 
     <?php include './beneficiaires.html.php';?>
 
-    </body>
+</body>
+
 </html>

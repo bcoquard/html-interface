@@ -5,23 +5,23 @@
 <?php include './clients-add.modal.html.php'?>
 
 <div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">login</th>
-          <th scope="col">type</th>
-          <th scope="col">nom</th>
-          <th scope="col">prenom</th>
-          <th scope="col">date de naissance</th>
-          <th scope="col">email</th>
-          <th scope="col">telephone</th>
-          <th scope="col">agence</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">login</th>
+        <th scope="col">type</th>
+        <th scope="col">nom</th>
+        <th scope="col">prenom</th>
+        <th scope="col">date de naissance</th>
+        <th scope="col">email</th>
+        <th scope="col">telephone</th>
+        <th scope="col">agence</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
 foreach ($clients as $iter) {
     echo '<tr>';
     echo '<td>' . $iter->id_client . '</td>';
@@ -37,8 +37,8 @@ foreach ($clients as $iter) {
     echo '</tr>';
 }
 ?>
-      </tbody>
-    </table>
-  </div>
+    </tbody>
+  </table>
+</div>
 
 </div>

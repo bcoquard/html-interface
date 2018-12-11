@@ -1,4 +1,3 @@
-
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=pbp;charset=utf8', 'root', '');
 
@@ -23,25 +22,14 @@ $agences = $reqAgences->fetchAll(PDO::FETCH_OBJ);
             <div class="input-group-prepend">
               <span class="input-group-text">Email</span>
             </div>
-            <input
-              type="email"
-              class="form-control"
-              placeholder="email"
-              name="email"
-              required />
+            <input type="email" class="form-control" placeholder="email" name="email" required />
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Mot de passe</span>
             </div>
-            <input
-              type="password"
-              class="form-control"
-              placeholder="mot de passe"
-              name="password"
-              required
-            />
+            <input type="password" class="form-control" placeholder="mot de passe" name="password" required />
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -57,38 +45,23 @@ $agences = $reqAgences->fetchAll(PDO::FETCH_OBJ);
             <div class="input-group-prepend">
               <span class="input-group-text">Nom</span>
             </div>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="nom"
-              name="nom"
-              required />
+            <input type="text" class="form-control" placeholder="nom" name="nom" required />
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Prenom</span>
             </div>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="prenom"
-              name="prenom"
-              required />
+            <input type="text" class="form-control" placeholder="prenom" name="prenom" required />
           </div>
 
-         
+
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Adresse Postale</span>
             </div>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="1 rue de ..., VILLE, CODE_POSTAL"
-              name="adresse"
-              required />
+            <input type="text" class="form-control" placeholder="1 rue de ..., VILLE, CODE_POSTAL" name="adresse" required />
           </div>
 
 
@@ -96,15 +69,9 @@ $agences = $reqAgences->fetchAll(PDO::FETCH_OBJ);
             <div class="input-group-prepend">
               <span class="input-group-text">Date naissance</span>
             </div>
-            <input 
-              id="datepicker"
-              type="text"
-              class="form-control"
-              placeholder="2000-01-01"
-              name="date_naissance"
-              required/>
-              <script>
-                $('#datepicker').datepicker({
+            <input id="datepicker" type="text" class="form-control" placeholder="2000-01-01" name="date_naissance" required />
+            <script>
+              $('#datepicker').datepicker({
                     format: 'yyyy-mm-dd',
                     uiLibrary: 'bootstrap4'
                 });
@@ -115,14 +82,9 @@ $agences = $reqAgences->fetchAll(PDO::FETCH_OBJ);
             <div class="input-group-prepend">
               <span class="input-group-text">Telephone</span>
             </div>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="telephone"
-              name="telephone"
-              required />
+            <input type="text" class="form-control" placeholder="telephone" name="telephone" required />
           </div>
-          
+
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Agence</span>
@@ -136,13 +98,13 @@ $agences = $reqAgences->fetchAll(PDO::FETCH_OBJ);
             </select>
           </div>
 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
-          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+      </div>
 
-        </form>
+      </form>
 
     </div>
   </div>
