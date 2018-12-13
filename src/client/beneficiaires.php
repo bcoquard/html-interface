@@ -39,7 +39,8 @@ if (isset($_POST["libelle"], $_POST["iban"])) {
     ]);
 
     // On empeche le resubmit avec le refresh F5
-    header('Location:beneficiaires.php');}
+    header('Location:beneficiaires.php');
+}
 ?>
 
 
