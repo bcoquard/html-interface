@@ -10,7 +10,7 @@
 <body class="container">
 
     <?php
-$PAGE_TYPE = 'ADMIN';
+$PAGE_TYPE = 'CONSEILLER';
 include '../modules/is-logged-in.php';?>
 
     <?php include '../modules/navbar-admin.php';?>

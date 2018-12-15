@@ -5,18 +5,18 @@
   <div class="card-body">
     <div class="d-flex justify-content-between d-flex align-items-center">
       <div class="card-left">
-        <h5>n°
+        <h5>
           <?php echo $compteNumber ?>
         </h5>
         <?php
             if ($compteSolde >= 0) {
                 echo '<p style="color:green; font-weight: bold">';
                 echo $compteSolde;
-                echo '</p>';
+                echo ' €</p>';
             } else {
                 echo '<p style="color:red; font-weight: bold">';
                 echo $compteSolde;
-                echo '</p>';
+                echo ' €</p>';
             }
         ?>
       </div>
@@ -26,28 +26,23 @@
         <table class="table table-card">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Libellé</th>
               <th scope="col">Montant</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">7</th>
-              <td>Amazon</td>
-              <td>- 10.00 €</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>
-                <3</td> <td>- 400.00 €
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Salaire</td>
-              <td>+ 1200.00 €</td>
-            </tr>
+            <?php
+  foreach ($operations as $operation) {
+echo '<tr>';
+echo '<td>'.$operation->description.'</td>';
+if ($operation->compte_debit==$compteId){
+  echo '<td style="color: red">- '.$operation->montant.' €</td>';
+}else {
+  echo '<td style="color: green">+ '.$operation->montant.' €</td>';
+}
+echo '</tr>';
+  }
+            ?>
           </tbody>
         </table>
       </div>
@@ -55,7 +50,7 @@
   </div>
 
   <div class="card-footer text-muted">
-    <a href="./compte.php" class="btn btn-primary">Plus</a>
+    <a href="./compte.php?compte=<?php echo $compteId?>" class="btn btn-primary">Plus</a>
   </div>
 </div>
 </div>

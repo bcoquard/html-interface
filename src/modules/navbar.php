@@ -20,9 +20,6 @@
           <a class="nav-link" href="comptes.php">Comptes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="operations.php">Opérations</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="beneficiaires.php">Bénéficiaire</a>
         </li>
       </ul>

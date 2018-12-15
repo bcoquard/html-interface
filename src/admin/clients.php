@@ -10,7 +10,7 @@
 <body class="container">
 
     <?php
-$PAGE_TYPE = 'ADMIN';
+$PAGE_TYPE = 'CONSEILLER';
 include '../modules/is-logged-in.php';?>
 
     <?php include '../modules/navbar-admin.php';?>
@@ -44,17 +44,6 @@ if (isset( $_POST["email"],$_POST["password"], $_POST["type"], $_POST["nom"], $_
 $reqClients = $bdd->prepare("SELECT client.*, agence.description FROM client as client JOIN agence as agence on agence.id_agence = client.id_agence ORDER BY client.id_client");
 $reqClients->execute();
 $clients = $reqClients->fetchAll(PDO::FETCH_OBJ);
-
-/*if (isset($_POST["libelle"], $_POST["iban"])) {
-$reqInsertBeneficiare = $bdd->prepare("INSERT INTO beneficiaire(id_client, libelle, iban) VALUES(:idClient, :libelle, :iban)");
-$reqInsertBeneficiare->execute([
-":idClient" => $_SESSION["connectedUser"]->id_client,
-":libelle" => $_POST["libelle"],
-":iban" => $_POST["iban"],
-]);
-
-// On empeche le resubmit avec le refresh F5
-header('Location:beneficiaires.php');}*/
 ?>
 
 

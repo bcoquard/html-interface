@@ -6,4 +6,6 @@
 
   <?php include './client-beneficiaires.html.php' ?>
 
+  <?php include './client-demandes.html.php' ?>
+
 </div>

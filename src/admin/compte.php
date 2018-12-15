@@ -2,11 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <?php include '../modules/includes.php';?>
+    <?php include '../modules/includes.php';?>
 
-  <title>Comptes</title>
+    <title>Compte banquaire</title>
 </head>
-
 
 <body class="container">
     <?php
@@ -23,7 +22,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=pbp;charset=utf8', 'root', '');
 // Initialisation des données
 // -----------------------------
 // -----------------------------
-$idClient = $_SESSION["connectedUser"]->id_client;
+$idClient = $_GET['client'];
 $idCompte = $_GET['compte'];
 
 //Client
@@ -35,6 +34,8 @@ $idCompte = $_GET['compte'];
 $reqCompte = $bdd->prepare("SELECT compte.*, agence.* FROM compte as compte JOIN agence as agence on agence.id_agence = compte.id_agence  WHERE id_compte = :idCompte");
 $reqCompte->execute([":idCompte" => $idCompte]);
 $compte = $reqCompte->fetch(PDO::FETCH_OBJ);
+
+$iban=$compte->cd_pays . $compte->cle_iban . $compte->cd_banque . $compte->cd_guichet . $compte->numero_compte . $compte->cle_rib;
 
 //Operations
 $reqOperations = $bdd->prepare("SELECT * FROM operation WHERE type = 'VERSEMENT' AND compte_debit = :idCompte OR compte_credit = :idCompte ORDER BY date_execution DESC");
@@ -95,6 +96,21 @@ if (isset($_POST['dbObject']) ){
         }
     }
 }
+
+// -----------------------------
+// -----------------------------
+// Autre méthodes custom
+// -----------------------------
+// -----------------------------
+if (isset($_GET['decouvert']) ){
+    $reqUpdateCompte = $bdd->prepare("UPDATE compte SET decouvert = ".$_GET['decouvert']." WHERE id_compte = :idCompte");
+    $reqUpdateCompte->execute([
+        ":idCompte" => $idCompte,
+    ]);
+
+    header('Location:compte.php?client=' . $idClient.'&compte='.$idCompte);
+}
+
 
 ?>
 

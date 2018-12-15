@@ -9,7 +9,7 @@
 
 <body class="container">
     <?php
-$PAGE_TYPE = 'ADMIN';
+$PAGE_TYPE = 'CONSEILLER';
 include '../modules/is-logged-in.php';?>
 
     <?php include '../modules/navbar-admin.php';?>
@@ -30,7 +30,7 @@ $reqClient->execute([":idClient" => $idClient]);
 $client = $reqClient->fetch(PDO::FETCH_OBJ);
 
 //Comptes
-$reqComptes = $bdd->prepare("SELECT * FROM compte WHERE id_client = :idClient");
+$reqComptes = $bdd->prepare("SELECT compte.*, agence.* FROM compte as compte JOIN agence as agence on agence.id_agence = compte.id_agence  WHERE id_client = :idClient");
 $reqComptes->execute([":idClient" => $idClient]);
 $comptes = $reqComptes->fetchAll(PDO::FETCH_OBJ);
 
@@ -40,11 +40,14 @@ $reqAgences->execute();
 $agences = $reqAgences->fetchAll(PDO::FETCH_OBJ);
 
 //Beneficiaires
-
 $reqBeneficiaires = $bdd->prepare("SELECT * FROM beneficiaire WHERE id_client = :idClient");
 $reqBeneficiaires->execute([':idClient' => $idClient]);
 $beneficiaires = $reqBeneficiaires->fetchAll(PDO::FETCH_OBJ);
 
+//Demandes
+$reqDemandes = $bdd->prepare("SELECT * FROM demande WHERE id_client = :idClient ORDER BY date");
+$reqDemandes->execute([':idClient' => $idClient]);
+$demandes = $reqDemandes->fetchAll(PDO::FETCH_OBJ);
 
 // -----------------------------
 // -----------------------------
@@ -81,29 +84,22 @@ if (isset($_POST['dbObject']) ){
             ":idClient" => $idClient,
         ]);
     } else if ($_POST['dbObject'] == 'compte') {
-        $reqGetMax = $bdd->prepare("SELECT MAX(id_compte) FROM compte where id_agence = :idAgence");
+        $reqGetMax = $bdd->prepare("SELECT COALESCE(MAX(id_compte), 0) FROM compte where id_agence = :idAgence");
         $reqGetMax->execute([":idAgence" => $client->id_agence]);
         $maxAccount = $reqGetMax->fetch();
 
-        $numeroCompte = str_pad($maxAccount[0] . "", 11, "0", STR_PAD_LEFT);
-
-        $cleRib = str_pad(rand(0, 99) . "", 2, "0", STR_PAD_LEFT);
-        $cleIban = str_pad(rand(0, 99) . "", 2, "0", STR_PAD_LEFT);
-
-        $iban = 'FR'
-        . $cleIban
-        . $client->cd_banque
-        . $client->cd_guichet
-            . $numeroCompte
-            . $cleRib;
-
-        error_reporting(E_ALL);
-        ini_set("display_errors", 1);
+        $cdPays='FR';
+        $cleIban='76';
+        $cdBanque=$client->cd_banque;
+        $cdGuichet=$client->cd_guichet;
+        $numeroCompte = str_pad($maxAccount[0] + 1 . "", 11, "0", STR_PAD_LEFT);
+        $cleRib=str_pad(rand(0, 99) . "", 2, "0", STR_PAD_LEFT);
+        $iban=$cdPays . $cleIban . $cdBanque . $cdGuichet . $numeroCompte . $cleRib;
 
         $reqInsertCompte = $bdd->prepare(
             "INSERT INTO compte" .
-            " (`type`, numero, id_client, solde, taux, decouvert, iban, id_agence)" .
-            " VALUES(:type, :numero, :idClient, :solde, :taux, :decouvert, :iban, :idAgence)");
+            " (`type`, numero_compte, id_client, solde, taux, decouvert, id_agence, cd_pays, cle_rib, cle_iban, iban)" .
+            " VALUES(:type, :numero, :idClient, :solde, :taux, :decouvert, :idAgence, :cdPays, :cleRib, :cleIban, :iban)");
 
         $decouvert = 0;
         if (isset($_POST['decouvert'])) {
@@ -116,8 +112,11 @@ if (isset($_POST['dbObject']) ){
             ":solde" => $_POST["solde"],
             ":taux" => $_POST["taux"],
             ":decouvert" => $decouvert,
-            ":iban" => $iban,
             ":idAgence" => $client->id_agence,
+            ":cdPays" => $cdPays,
+            ":cleRib" => $cleRib,
+            ":cleIban" => $cleIban,
+            ":iban" => $iban,
         ]);
 
     } else if ($_POST['dbObject'] == 'beneficiaire') {

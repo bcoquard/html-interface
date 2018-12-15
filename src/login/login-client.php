@@ -35,7 +35,7 @@ if (isset($_POST["email"], $_POST["password"])) {
           ><img alt="" id="logo" src="../../media/logo.png"
         /></a>
       </div>
-      <h2 class="text_salarie" id="text_acces">ACCÈS SALARIÉ</h2>
+      <h2 class="text_salarie" id="text_acces">ACCÈS CLIENT</h2>
     </div>
     <div>
       <div id="login">
@@ -68,7 +68,7 @@ if (isset($_POST["email"], $_POST["password"])) {
               />
             </div>
 
-            <input type="submit" class="btn btn-primary" value="Connexion" />
+            <input type="submit" class="btn btn-primary" value="Connexion client" />
           </form>
         </div>
       </div>

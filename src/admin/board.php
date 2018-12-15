@@ -4,17 +4,16 @@
 <head>
     <?php include '../modules/includes.php';?>
 
-    <title>Bénéficaires</title>
+    <title>Accueil Conseiller</title>
 </head>
 
 <body class="container">
 
     <?php
-$PAGE_TYPE = 'ADMIN';
+$PAGE_TYPE = 'CONSEILLER';
 include '../modules/is-logged-in.php';?>
 
     <?php
-$PAGE_TYPE = 'ADMIN';
 include '../modules/navbar-admin.php';?>
 
 
