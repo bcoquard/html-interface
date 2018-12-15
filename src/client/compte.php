@@ -13,7 +13,7 @@
 $PAGE_TYPE = 'CONSEILLER';
 include '../modules/is-logged-in.php';?>
 
-    <?php include '../modules/navbar-admin.php';?>
+    <?php include '../modules/navbar.php';?>
 
     <?php
 $bdd = new PDO('mysql:host=localhost;dbname=pbp;charset=utf8', 'root', '');
